@@ -21,3 +21,8 @@ gradle-app.setting
 # runtime files
 .vertx
 /bin/
+
+# eclipse files
+.classpath
+.project
+.settings/

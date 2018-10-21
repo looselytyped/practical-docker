@@ -1,0 +1,10 @@
+
+# Avoid
+HEALTHCHECK CMD curl --fail http://localhost:5000/ || exit 1
+
+# Do
+COPY healthcheck ./healthcheck
+HEALTHCHECK --interval=1s \
+  --timeout=1s \
+  --start-period=2s \
+  --retries=3 CMD [ "/healthcheck" ]

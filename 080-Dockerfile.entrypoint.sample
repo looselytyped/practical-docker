@@ -1,0 +1,5 @@
+FROM ubuntu:18.10
+
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["default"]

@@ -1,0 +1,72 @@
+// dependencies for build script itself
+buildscript {
+  repositories {
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
+    mavenCentral()
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+  }
+}
+
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+// project level dependencies
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+dependencies {
+  compile "io.vertx:vertx-core:$vertxVersion"
+  compile "io.vertx:vertx-web:$vertxVersion"
+
+  // handlerbars
+  compile "io.vertx:vertx-web-templ-handlebars:$vertxVersion"
+	compile 'com.github.jknack:handlebars:2.1.0'
+
+  // mongo
+  compile "io.vertx:vertx-mongo-client:$vertxVersion"
+
+  compile "org.slf4j:slf4j-api:$slf4jVersion"
+  compile "org.slf4j:slf4j-simple:$slf4jVersion"
+}
+
+// create a shadowJar, and provide live reload abilities
+
+mainClassName = 'io.vertx.core.Launcher'
+def mainVerticleName = 'com.looselytyped.MainVerticle'
+def watchForChange = 'src/**/*.java,src/**/*.hbs'
+
+// OS specific command
+
+def doOnChange
+if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+  doOnChange = '.\\gradlew shadowJar'
+} else {
+  doOnChange = './gradlew shadowJar'
+}
+
+shadowJar {
+  classifier = 'fat'
+  manifest {
+    attributes 'Main-Verticle': mainVerticleName
+  }
+  mergeServiceFiles {
+    include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+  }
+}
+
+run {
+  dependsOn shadowJar
+  main="-jar";
+  args = ["$shadowJar.archivePath",
+    "--redeploy=$watchForChange",
+    "--on-redeploy=$doOnChange"
+  ]
+}

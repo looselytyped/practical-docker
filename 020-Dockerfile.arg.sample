@@ -1,0 +1,15 @@
+FROM alpine:3.8
+# Do
+# Use default value
+ARG AUTHOR="Raju Gandhi"
+ARG BUILD_DATE
+ARG VCS_REF
+
+RUN echo ${AUTHOR}
+RUN echo ${BUILD_DATE}
+
+# USAGE
+# default author
+# docker build -f 020-Dockerfile.arg.sample -t test .
+# set author at build time
+# docker build --build-arg AUTHOR="Solomon Hykes" -f 020-Dockerfile.arg.sample -t test .

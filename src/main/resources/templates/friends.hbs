@@ -1,0 +1,22 @@
+{{#partial "content" }}
+<h2>My Friends</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Since</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each friends as |friend|}}
+      <tr>
+        <td>{{friend.firstName}}</td>
+        <td>{{friend.since}}</td>
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+</div>
+{{/partial}} {{> templates/layout.hbs}}

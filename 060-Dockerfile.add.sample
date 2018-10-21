@@ -1,0 +1,11 @@
+FROM alpine:3.8
+
+# explodes the tarball
+ADD nginx-1.9.9.tar.gz /tmp/addFromFs/
+# simply downloads it
+ADD http://nginx.org/download/nginx-1.9.9.tar.gz /tmp/addFromUrl/
+
+
+# simply copies it over
+COPY nginx-1.9.9.tar.gz /tmp/fromCopy
+

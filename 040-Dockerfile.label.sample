@@ -1,0 +1,22 @@
+FROM alpine:3.8
+
+ARG AUTHOR="Raju Gandhi"
+ARG BUILD_DATE
+ARG VCS_REF
+
+# Don't
+# LABEL org.label-schema.author=$AUTHOR
+# LABEL org.label-schema.build-date=$BUILD_DATE
+# LABEL org.label-schema.vcs-ref=$VCS_REF
+
+# Do
+LABEL org.label-schema.author=$AUTHOR \
+  org.label-schema.build-date=$BUILD_DATE \
+  org.label-schema.vcs-ref=$VCS_REF
+
+# USAGE
+# docker build -f 040-Dockerfile.label.sample -t test .
+# docker inspect test | grep -A 5 Labels
+# set at build time
+# docker build --build-arg AUTHOR="Solomon Hykes" -f 040-Dockerfile.label.sample -t test .
+# docker inspect test | grep -A 5 Labels

@@ -1,0 +1,14 @@
+# Don't
+# FROM alpine
+
+# Do
+# Pin the version
+# FROM alpine:3.8
+# USAGE
+# docker build -t my-alpine -f 010-Dockerfile.from.sample .
+
+# OR Use ARG to set it at build time
+ARG version=3.8
+FROM alpine:${version}
+# USAGE
+# docker build --build-arg version=3.7 -t my-alpine -f 010-Dockerfile.from.sample .

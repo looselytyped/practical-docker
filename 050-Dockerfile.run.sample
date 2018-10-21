@@ -1,0 +1,15 @@
+FROM ubuntu:18.10
+
+# Don't
+# RUN apt-get update
+# RUN apt-get install -y netcat
+# RUN apt-get clean
+
+# Do
+RUN apt-get update \
+  && apt-get install -y \
+  netcat=1.10-41.1  \
+  && apt-get clean
+
+# USAGE
+# docker build -f 050-Dockerfile.run.sample -t test .

@@ -1,0 +1,26 @@
+# ignore these folders
+.git
+.cache
+.settings
+.vertx
+bin
+build
+!build/libs/*.jar
+
+# ignore these files
+.project
+.classpath
+.gitignore
+.dockerignore
+.gradle
+wait.sh
+
+# ignore all Docker files
+Dockerfile*
+docker-compose.yml
+
+# ignore all *.class files in all folders, including build root
+*.class
+
+# ignore all markdown files (md) besides README.md
+*.md

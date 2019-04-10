@@ -1,4 +1,6 @@
-FROM ubuntu:18.10
+FROM openjdk:11-jre
+
+COPY build/libs/docker-workshop-0.0.1-SNAPSHOT-fat.jar /var/app.jar
 
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]

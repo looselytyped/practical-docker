@@ -1,10 +1,10 @@
-FROM openjdk:10.0.2-jdk as builder
+FROM openjdk:11-jdk as builder
 WORKDIR /code
 ADD . ./
 RUN ["./gradlew", "shadowJar", "--no-daemon"]
 
 
-FROM openjdk:10.0.2-jre
+FROM openjdk:11-jre
 RUN apt-get update \
   && apt-get install -y \
   netcat  \

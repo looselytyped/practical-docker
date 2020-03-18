@@ -1,6 +1,6 @@
 # Practical Docker
 
-This is sample project to accomodate my "Practical Docker" presentation
+This is sample project to accommodate my "Practical Docker" presentation
 
 ## Installation
 
@@ -26,6 +26,33 @@ There are two items of note
 
 ```bash
 docker version;
+Client: Docker Engine - Community
+ Version:           19.03.5
+ API version:       1.40
+ Go version:        go1.12.12
+ Git commit:        633a0ea
+ Built:             Wed Nov 13 07:22:34 2019
+ OS/Arch:           darwin/amd64
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.5
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.12.12
+  Git commit:       633a0ea
+  Built:            Wed Nov 13 07:29:19 2019
+  OS/Arch:          linux/amd64
+  Experimental:     true
+ containerd:
+  Version:          v1.2.10
+  GitCommit:        b34a5c8af56e510852c35414db4c1f4fa6172339
+ runc:
+  Version:          1.0.0-rc8+dev
+  GitCommit:        3e425f80a8c931f88e6d94a8c831b9d5aa481657
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
 ```
 
 ## Warm up your engines!
@@ -35,15 +62,15 @@ Running this over a hotel wifi connection might not go well.
 Using the command (bash) prompt:
 
 ```bash
-docker pull alpine:3.8;
-docker pull jenkins:2.60.3;
-docker pull mongo:3.4.5;
-docker pull nginx:1.14-alpine;
+docker pull alpine:3.9;
+docker pull jenkins/jenkins:2.225;
+docker pull mongo:3.6.17;
+docker pull nginx:1.17.9-alpine;
 docker pull openjdk:8u131-jdk;
 docker pull openjdk:8u131-jre;
 docker pull portainer/portainer:latest;
 docker pull tomcat:9;
-docker pull ubuntu:18.10;
+docker pull ubuntu:19.10;
 ```
 
 ## The final test
@@ -51,7 +78,7 @@ docker pull ubuntu:18.10;
 Once again, at the command prompt:
 
 ```bash
-> docker run -d --name myjenkins -p 8080:8080 jenkins:2.60.3;
+> docker run -d --name myjenkins -p 8080:8080 jenkins/jenkins:2.225;
 > docker logs -f myjenkins;
 ```
 
@@ -85,7 +112,6 @@ docker container rm myjenkins;
 
 Woot!!!
 See you soon!!!
-
 
 ## Notes
 

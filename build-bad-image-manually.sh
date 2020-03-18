@@ -9,7 +9,7 @@ set -o nounset
 # Catch the error in case mysqldump fails (but gzip succeeds) in `mysqldump |gzip`
 set -o pipefail
 
-last=alpine:3.8
+last=alpine:3.9
 for i in `seq 200`; do
   rm -f cid
   docker run --cidfile=cid $last touch file$i;

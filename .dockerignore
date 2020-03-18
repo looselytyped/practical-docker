@@ -2,7 +2,6 @@
 .git
 .cache
 .settings
-.vertx
 bin
 build
 !build/libs/*.jar
@@ -13,11 +12,18 @@ build
 .gitignore
 .dockerignore
 .gradle
-wait.sh
 
-# ignore all Docker files
-Dockerfile*
+# we are using a Gradle based image. No need to copy Gradle files into the container
+gradle
+gradlew
+gradlew.bat
+
+# ignore all Docker/demo files files
+*Dockerfile*
 docker-compose.yml
+healthcheck
+build.sh
+build-bad-image-manually.sh
 
 # ignore all *.class files in all folders, including build root
 *.class

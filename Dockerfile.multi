@@ -1,14 +1,18 @@
-FROM openjdk:11-jdk as builder
+# ——— Build/Test image ——————————————————————————————————————————————————————
+# Name the builder image "as builder"
+FROM gradle:5.6.2-jdk11 as builder
+
 WORKDIR /code
-ADD . ./
-RUN ["./gradlew", "shadowJar", "--no-daemon"]
+COPY . ./
+
+RUN ["gradle", "-q", "--no-daemon"]
 
 
-FROM openjdk:11-jre
-RUN apt-get update \
-  && apt-get install -y \
-  netcat  \
-  && apt-get clean
-EXPOSE 8080
-COPY --from=builder /code/build/libs/docker-workshop-0.0.1-SNAPSHOT-fat.jar /var/app.jar
-CMD ["java", "-jar", "/var/app.jar"]
+# ——— Final production image ————————————————————————————————————————————————
+FROM gradle:5.6.2-jre11
+
+COPY --from=builder /code/build/libs/docker-olp-0.0.1-SNAPSHOT.jar /var/docker-olp-0.0.1-SNAPSHOT.jar
+
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["default"]

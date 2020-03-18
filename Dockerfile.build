@@ -1,6 +1,6 @@
-FROM openjdk:8u131-jdk
+FROM gradle:5.6.2-jdk11
 
 WORKDIR /code
 COPY . ./
 
-RUN ["./gradlew", "shadowJar", "--no-daemon"]
+RUN ["gradle", "-q", "--no-daemon"]

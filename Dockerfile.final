@@ -1,0 +1,7 @@
+FROM gradle:5.6.2-jre11
+
+COPY ./target/docker-olp-0.0.1-SNAPSHOT.jar /var/docker-olp-0.0.1-SNAPSHOT.jar
+
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["default"]

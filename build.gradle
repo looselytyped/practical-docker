@@ -36,4 +36,23 @@ task uberjar(type: Jar) {
   }
 }
 
+// a gradle hack to force gradle to resolve dependencies outside of
+// actually building
+task resolveDependencies {
+  doLast {
+    project.rootProject.allprojects.each { subProject ->
+      subProject.buildscript.configurations.each { configuration ->
+        if (configuration.canBeResolved) {
+          configuration.resolve()
+        }
+      }
+      subProject.configurations.each { configuration ->
+        if (configuration.canBeResolved) {
+          configuration.resolve()
+        }
+      }
+    }
+  }
+}
+
 defaultTasks 'clean', 'test', 'uberjar'

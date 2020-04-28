@@ -1,9 +1,12 @@
-FROM gradle:5.6.2-jdk11
+FROM openjdk:11.0.5-jdk as builder
 
 WORKDIR /code
 COPY *.gradle gradle.* gradlew ./
 COPY gradle ./gradle
+RUN ./gradlew build || return 0
 
 COPY src/ src/
 
-RUN ["gradle", "-q", "--no-daemon"]
+# Alternatively ...
+# RUN ./gradlew resolveDependencies
+RUN ["./gradlew", "-q", "--no-daemon"]

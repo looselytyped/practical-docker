@@ -13,9 +13,7 @@ build
 .dockerignore
 .gradle
 
-# we are using a Gradle based image. No need to copy Gradle files into the container
-gradle
-gradlew
+# we are using a Linus based image. No need to copy bat files in there
 gradlew.bat
 
 # ignore all Docker/demo files files

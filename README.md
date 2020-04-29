@@ -1,6 +1,7 @@
 # Practical Docker
 
-This is sample project to accommodate my "Practical Docker" presentation
+This is sample project to accommodate my "Practical Docker" presentation.
+Clone this repository and then follow all the instructions listed in this README.
 
 ## Installation
 
@@ -11,6 +12,10 @@ You will need **2** things installed
 
 Optionally, a good text editor.
 I highly recommend [VS Code](https://code.visualstudio.com/) with the [Docker Extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker).
+
+If you wish to go all the way you can (optionally) install the following:
+
+- [jq](https://github.com/stedolan/jq/wiki/Installation)
 
 ### Docker installation
 

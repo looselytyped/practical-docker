@@ -14,13 +14,19 @@ function finish {
 }
 trap finish EXIT
 
+# ——— BUILD/TEST CODE —————————————————————————————————————————————————————————
 # build/test our code
 docker build -t build-img -f Dockerfile.build .
-# create a temp directory on the filesystem
+
+# ——— CREATE A TEMP DIRECTORY —————————————————————————————————————————————————
 mkdir -p target
-# start a temporary container from our "build-img" so we can get to its filesystem
+
+# ——— GET THE JAR OUT —————————————————————————————————————————————————————————
+# start a temporary container from our "build-img"
+# so we can get to its filesystem
 docker create --name builder build-img
 docker cp builder:/code/build/libs/docker-olp-0.0.1-SNAPSHOT.jar \
 ./target/
 
+# ——— BUILD OUR FINAL IMAGE ———————————————————————————————————————————————————
 docker build -t final-img -f Dockerfile.final .

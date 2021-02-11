@@ -75,7 +75,7 @@ docker pull openjdk:8u131-jdk;
 docker pull openjdk:8u131-jre;
 docker pull portainer/portainer:latest;
 docker pull tomcat:9;
-docker pull ubuntu:19.10;
+docker pull ubuntu:20.10;
 docker pull fedora:33;
 ```
 

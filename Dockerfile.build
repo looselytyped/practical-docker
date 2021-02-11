@@ -9,4 +9,5 @@ COPY src/ src/
 
 # Alternatively ...
 # RUN ./gradlew resolveDependencies
+
 RUN ["./gradlew", "-q", "--no-daemon"]

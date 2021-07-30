@@ -67,7 +67,7 @@ Running this over a hotel wifi connection might not go well.
 Using the command (bash) prompt:
 
 ```bash
-docker pull alpine:3.9;
+docker pull alpine:3.12;
 docker pull jenkins/jenkins:2.225;
 docker pull mongo:3.6.17;
 docker pull nginx:1.17.9-alpine;

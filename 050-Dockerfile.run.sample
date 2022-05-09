@@ -1,14 +1,14 @@
-FROM ubuntu:20.10
+FROM ubuntu:22.04
 
 # Don't
 # RUN apt-get update
-# RUN apt-get install -y netcat=1.10-41.1
+# RUN apt-get install -y netcat=1.218-4ubuntu1
 # RUN apt-get clean
 
 # Do
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-  netcat=1.217-2ubuntu1  \
+  netcat=1.218-4ubuntu1 \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 

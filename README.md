@@ -24,11 +24,11 @@ If you wish to go all the way you can (optionally) install the following:
 
 There are two items of note
 
-- Please treat this installation like any other. Different operating systems and different set ups (especially in company-issued laptops) can make this installation tricky. Google, and perhaps your desktop support team (if using a company-issued laptop) are your friends. Debugging this can be tricky.
 - Docker requires a slew of permissions to run. So please make sure you grant Docker **all** the permissions it needs
 
-### Testing your installation
+- Please treat this installation like any other. Different operating systems and different set ups (especially in company-issued laptops) can make this installation tricky. Google, and perhaps your desktop support team (if using a company-issued laptop) are your friends. Debugging this can be tricky.
 
+### Testing your installation
 ```bash
 docker version;
 Client: Docker Engine - Community

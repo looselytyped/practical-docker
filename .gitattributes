@@ -1,0 +1,22 @@
+# Handle line endings automatically for files detected as text
+# and leave all files detected as binary untouched.
+*               text=auto
+
+#
+# The above will handle all files NOT found below
+#
+# These files are text and should be normalized (Convert crlf => lf)
+*.gitattributes text
+.gitignore      text
+*.md            text diff=markdown
+
+# Scripts
+*.bash     text eol=lf
+*.fish     text eol=lf
+*.ksh      text eol=lf
+*.sh       text eol=lf
+*.zsh      text eol=lf
+# These are explicitly windows files and should use crlf
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+*.ps1      text eol=crlf
